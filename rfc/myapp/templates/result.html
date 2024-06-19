@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Status</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .status-box {
+      width: 300px;
+      height: 100px;
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      font-size: 44px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .suggestions-box {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    img {
+            max-width: 350px;
+            max-height: 350px;
+        }
+
+    h2 {
+      color: #3498db;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+    {% if status %}
+    
+    <img src="{% static 'images/image1.jpg' %}" /> 
+    <img src="{% static 'images/image2.jpg' %}" />
+    <div class="suggestions-box">
+        <div class="status-box" id="statusBox">Present</div>
+        <h2>Suggestions:</h2>
+        <ul>
+          <li>Need to consider specailist doctor on spain</li>
+          <li>don't lift any weight</li>
+          <li>need to take calicium based foods</li>
+          
+        </ul>
+      </div>
+    {% else %}
+    <img src="{% static 'images/image2.jpg' %}" />
+    <div class="suggestions-box">
+        <div class="status-box" id="statusBox">Absent</div>
+        <h2>Suggestions:</h2>
+        <ul>
+          <li>you doesn't have any kyphosis based disease</li>
+          <li>eat healthy food to make your body healthy</li>  
+        </ul>
+      </div>
+    {% endif %}
+  
+  
+  
+
+  
+  <script>
+    // JavaScript logic to toggle between "Present" and "Absent" status
+    const statusBox = document.getElementById('statusBox');
+    
+    function toggleStatus() {
+      statusBox.textContent = statusBox.textContent === 'Present' ? 'Absent' : 'Present';
+    }
+  </script>
+</body>
+</html>
